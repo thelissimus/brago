@@ -20,7 +20,8 @@ or shoot yourself in the foot with deferred call of Close on a nil pointer.
 # How?
 
 For manual management: [Bracket]. For semi-automatic management: [WithResource]. For automatic
-management one has to write tailored functions specifically for each resource.
+management one has to write tailored functions specifically for each resource or use provided
+functions such as [pkg/github.com/thelissimus/brago/os.WithOpen].
 
 [Bracket Pattern]: https://wiki.haskell.org/Bracket_pattern
 */
