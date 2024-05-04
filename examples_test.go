@@ -6,8 +6,8 @@ import (
 	"github.com/thelissimus/brago"
 )
 
-func ExampleBracketTry() {
-	brago.BracketTry(
+func ExampleBracket() {
+	brago.Bracket(
 		func() (*os.File, error) {
 			return os.OpenFile("./LICENSE", os.O_RDWR|os.O_CREATE, 0644)
 		},
@@ -15,19 +15,19 @@ func ExampleBracketTry() {
 			return r.Close()
 		},
 		func(r *os.File) error {
-			_, err := r.Write([]byte(""))
+			_, err := r.WriteString("")
 			return err
 		},
 	)
 }
 
-func ExampleWithResourceTry() {
-	brago.WithResourceTry(
+func ExampleWithResource() {
+	brago.WithResource(
 		func() (*os.File, error) {
 			return os.OpenFile("./LICENSE", os.O_RDWR|os.O_CREATE, 0644)
 		},
 		func(r *os.File) error {
-			_, err := r.Write([]byte(""))
+			_, err := r.WriteString("")
 			return err
 		},
 	)
